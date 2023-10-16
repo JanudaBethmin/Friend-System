@@ -112,10 +112,14 @@ $resultall = mysqli_query($conn, $sqlall);
             $num_of_rows = mysqli_num_rows($resultmax);
             $num_of_pages = ceil($num_of_rows / $no_of_friends_per_page);
                 for($i=1; $i<=$num_of_pages; $i++) {
-                    echo "<a href='friendsadd.php?page=$i' id='prev'>{$i}</a>";
+                    echo "<a href='friendsadd.php?page=$i'>{$i}</a>";
                     echo "&nbsp";
                 }
             ?>
+            <br>
+            <a href='friendsadd.php?page=<?php if($page == 1){echo $page;} else{echo $page - 1;} ?>' id='prev'>Prev</a>
+            &nbsp;
+            <a href='friendsadd.php?page=<?php if($page == $num_of_pages){echo $page;} else{echo $page + 1;} ?>' id='next'>Next</a>
             
         </div>
     </div>
